@@ -17,12 +17,12 @@ jobs:
     # As etapas representam uma sequência de tarefas que serão executadas como parte do job
     steps:
       # Faz checkout do seu repositório em $GITHUB_WORKSPACE, para que o job possa acessá-lo
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Instalar o Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: "12.x"
+          node-version: "16"
     
       - name: Instalar o Newman
         run: |
@@ -34,7 +34,7 @@ jobs:
 
       - name: Executar a Coleção do Postman
         run: |
-          newman run MinhaColecao.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darktheme > testResults/runreport1.html
+          newman run ColecaoTeste.postman_collection.json -e workspace.postman_globals.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darktheme > testResults/runreport1.html
 
       - name: Exibir Detalhes da Execução
         uses: actions/upload-artifact@v2
