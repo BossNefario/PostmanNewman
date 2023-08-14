@@ -14,9 +14,6 @@ jobs:
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v3
-        with:
-          lfs: true
-          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Instalar o Node.js
         uses: actions/setup-node@v3
