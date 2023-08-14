@@ -26,7 +26,7 @@ jobs:
       node-version: "12.x"
     
     name: Install Newman
-    run: Z
+    run: |
       npm install -g newman
       npm install -g newman-reporter-htmlextra
     
